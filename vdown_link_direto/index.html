@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baixar Vídeos das Redes Sociais</title>
-    <meta name="description" content="Baixe vídeos de YouTube, TikTok, Instagram, Facebook, Twitter (X) e mais em alta qualidade, direto no seu computador.">
+    <meta name="description" content="Baixe vídeos de Instagram, Facebook, Twitter (X) e Kwai em alta qualidade, direto no seu computador.">
     <meta name="author" content="Gabriel">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <style>
@@ -80,7 +80,7 @@
 <body>
     <div class="container">
         <h1>Baixe Vídeos das Redes Sociais</h1>
-        <p class="lead">Cole o link de YouTube, TikTok, Instagram, Facebook, Twitter (X) ou Kwai e clique em "Baixar".</p>
+        <p class="lead">Cole o link de Instagram, Facebook, Twitter (X) ou Kwai e clique em "Baixar".</p>
         <input type="text" id="videoUrl" placeholder="Cole o link do vídeo">
         <div style="margin-bottom:10px;">
             <button onclick="baixar()">Baixar</button>
@@ -95,6 +95,15 @@
 
             if (!url) {
                 resultDiv.innerHTML = '<span class="error">Por favor, insira um URL válido</span>';
+                return;
+            }
+
+            // Verificar se o URL é de uma plataforma permitida
+            const allowedDomains = ['instagram.com', 'facebook.com', 'twitter.com', 'x.com', 'kwai.com'];
+            const domainValid = allowedDomains.some(domain => url.includes(domain));
+            
+            if (!domainValid) {
+                resultDiv.innerHTML = '<span class="error">Apenas links de Instagram, Facebook, Twitter/X ou Kwai são permitidos</span>';
                 return;
             }
 
