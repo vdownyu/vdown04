@@ -74,7 +74,26 @@
         .error {
             color: #dc3545;
         }
-        footer { margin-top: 20px; color: #666; font-size: 14px; }
+        footer { 
+            margin-top: 20px; 
+            color: #666; 
+            font-size: 14px; 
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -87,7 +106,14 @@
         </div>
         <div id="result"></div>
     </div>
-    <footer>&copy; 2025 vdown.cloud - Ferramenta de download</footer>
+    <footer>
+        &copy; 2025 vdown.cloud - Ferramenta de download
+        <div class="footer-links">
+            <a href="/termos-de-uso" target="_blank">Termos de Uso</a>
+            <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>
+            <a href="/contato" target="_blank">Contato</a>
+        </div>
+    </footer>
     <script>
         async function baixar() {
             const url = document.getElementById("videoUrl").value.trim();
